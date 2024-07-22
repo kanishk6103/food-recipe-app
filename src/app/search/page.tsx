@@ -72,7 +72,7 @@ const page = () => {
           {results?.length ?? 0} Results
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-2 px-7">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 px-7">
         {searchTerm?.length! > 0 ? (
           results.length > 0 ? (
             results.map((singleSearch) => {

@@ -1,7 +1,7 @@
 const ResultCard = ({ name, image }: { name: string; image: string }) => {
   return (
     <div
-      className="w-36 h-36 rounded-[10px] px-2 flex flex-col justify-end items-start my-2 text-white relative"
+      className="aspect-square rounded-xl px-2 flex flex-col justify-end items-start my-1 text-white relative"
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
