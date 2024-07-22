@@ -14,3 +14,11 @@ export interface CategoryListResponse {
 export interface Dishes {
   meals: MealCategoryDish[];
 }
+
+export interface Meals {
+  strCategory: string;
+}
+
+export interface CategoryList {
+  meals: Meals[];
+}

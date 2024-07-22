@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
 import { Search, Settings } from "../../public/assets";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import FilterButton from "./FIlter/FilterButton";
+
 const SearchBar = ({
   placeholder,
   searchTerm,
@@ -41,9 +43,7 @@ const SearchBar = ({
           />
         </form>
       </div>
-      <button className="bg-primary-green-500 text-white px-3 rounded-lg h-full">
-        <Image src={Settings} height={20} width={20} alt="Settings" />
-      </button>
+      <FilterButton />
     </div>
   );
 };

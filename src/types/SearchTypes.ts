@@ -57,3 +57,4 @@ export interface SearchMeal {
 export interface SearchResponse {
   meals: SearchMeal[];
 }
+

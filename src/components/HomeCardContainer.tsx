@@ -10,19 +10,33 @@ const HomeCardContainer = ({ activeCategory }: { activeCategory: string }) => {
   useEffect(() => {
     const getDishes = async (name: string): Promise<Dishes | undefined> => {
       if (name === "All") {
-        setData([]);
-        return;
+        const fetchSpecificArea = async () => {
+          const data = await fetch(
+            `https://www.themealdb.com/api/json/v1/1/filter.php?a=Indian`,
+            {
+              cache: "force-cache",
+            }
+          );
+          if (!data.ok) {
+            console.error("Error fetching area");
+            return;
+          }
+          const json_data = await data.json();
+          setData(json_data.meals);
+        };
+        fetchSpecificArea();
+      } else {
+        const response = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`,
+          { cache: "force-cache" }
+        );
+        if (!response.ok) {
+          console.error("Failed to fetch data!");
+          return;
+        }
+        const json_data = await response.json();
+        setData(json_data.meals);
       }
-      const response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`,
-        { cache: "force-cache" }
-      );
-      if (!response.ok) {
-        console.error("Failed to fetch data!");
-        return;
-      }
-      const json_data = await response.json();
-      setData(json_data.meals);
     };
     getDishes(activeCategory);
   }, [activeCategory]);
