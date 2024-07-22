@@ -10,7 +10,7 @@ const HomeCardContainer = ({ activeCategory }: { activeCategory: string }) => {
   useEffect(() => {
     const getDishes = async (name: string): Promise<Dishes | undefined> => {
       if (name === "All") {
-        setData([]); // Or handle it appropriately if "All" should display all dishes.
+        setData([]);
         return;
       }
       const response = await fetch(
@@ -28,7 +28,7 @@ const HomeCardContainer = ({ activeCategory }: { activeCategory: string }) => {
   }, [activeCategory]);
 
   return data ? (
-    <div className="flex gap-5 w-full overflow-x-auto py-16 pl-7">
+    <div className="flex gap-5 w-full overflow-x-auto pt-16 pb-5 pl-7">
       {data.map((singleDish, index) => (
         <HomeCard
           image={singleDish.strMealThumb}

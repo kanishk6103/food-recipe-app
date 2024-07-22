@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`mt-8 ${poppins.className}`}>{children}</body>
+      <body className={`mt-16 ${poppins.className}`}>{children}</body>
     </html>
   );
 }

@@ -36,7 +36,7 @@ const ButtonContainer = ({
     : [];
 
   return data ? (
-    <div className="w-full h-9 flex gap-4 px-7 overflow-y-auto">
+    <div className="w-full h-8 flex gap-4 px-7 overflow-y-auto">
       {items.map((singleCategory, index) => (
         <PrimaryButton
           text={singleCategory?.strCategory}
