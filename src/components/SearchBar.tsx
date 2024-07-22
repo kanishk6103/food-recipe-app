@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { Search, Settings } from "../../public/assets";
 import { FormEvent, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import FilterButton from "./FIlter/FilterButton";
 
 const SearchBar = ({
@@ -16,7 +15,6 @@ const SearchBar = ({
   setSearchTerm: (term: string) => void;
   handleSearch: (term: string) => void;
 }) => {
-  const router = useRouter();
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     handleSearch(searchTerm);

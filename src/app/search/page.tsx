@@ -7,10 +7,10 @@ import SearchBar from "@/components/SearchBar";
 import { SearchMeal } from "@/types/SearchTypes";
 import ResultCard from "@/components/Cards/ResultCard";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const query = searchParams.get("query");
+  const query = searchParams.get("query") || "";
   const category = searchParams.get("category");
   const area = searchParams.get("area");
   const [searchTerm, setSearchTerm] = useState<string | null>(query);
@@ -99,7 +99,7 @@ const page = () => {
     return () => {
       clearTimeout(debounceTimeout);
     };
-  }, [searchTerm, category, area, query]);
+  }, [searchTerm, category, area, query, router]);
 
   const handleSearch = (term: string) => {
     setSearchTerm(term);
@@ -138,7 +138,11 @@ const page = () => {
           alt="left-arrow"
           className="absolte left-0"
           onClick={() => {
-            router.back();
+            if (window.history.length > 1) {
+              router.back();
+            } else {
+              router.push("/");
+            }
           }}
         />
         <div className="flex items-center justify-center w-full text-lg font-semibold">
@@ -188,4 +192,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
